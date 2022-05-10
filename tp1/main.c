@@ -1,7 +1,5 @@
 // Emanuel Prima
 
-// gcc main.c -pedantic-errors -std=c11 -Wall -g -o prog
-
 #include <ctype.h>
 #include <stdio.h>
 
@@ -11,10 +9,12 @@ int main(void) {
   int i = 0, j;
   char c;
 
+  // Inicializo la cadena
   for (j = 0; j < lon; j++) {
     cadena[j] = 0;
   }
 
+  // Leo desde la consola
   while (c != '\n') {
     c = getchar();
     cadena[i] = c;
@@ -24,13 +24,13 @@ int main(void) {
 
   for (j = 0; j < lon; j++) {
     if (isupper(cadena[j]))
-      putchar(tolower(cadena[j]));
+      putchar(tolower(cadena[j]));  // Si es una letra mayúscula, cambio a minúscula
     else if (islower(cadena[j]))
-      putchar(toupper(cadena[j]));
+      putchar(toupper(cadena[j]));  // Si es una letra minúscula, cambio a mayúscula
     else if (isdigit(cadena[j]))
-      continue;
+      continue;  // No copio
     else
-      putchar(cadena[j]);
+      putchar(cadena[j]);  // Todo lo demás se copia sin modificar
   }
   return 0;
 }
